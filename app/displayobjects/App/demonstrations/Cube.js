@@ -300,7 +300,7 @@ export default class CubeDemonstration extends BaseDemonstration {
 
       var x = document.createElement("canvas");
       var xc = x.getContext("2d");
-      x.width = x.height = 512;
+      x.width = x.height = 256;
 
       xc.font = "50pt Caveat Brush";
       xc.fillStyle = colorPallete[i];
@@ -349,6 +349,7 @@ export default class CubeDemonstration extends BaseDemonstration {
       materials[i].morphTargets = true;
       materials[i].map = new THREE.Texture(x);
       materials[i].map.needsUpdate = true;
+      materials[i].map.anisotropy = 4;
     }
 
     for (var i = 0; i < 8; i++) {

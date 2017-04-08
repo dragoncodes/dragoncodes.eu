@@ -64,8 +64,10 @@ export default class RouterComponent extends React.Component {
         };
     }
 
-    propagateChildRouteExit () {
+    propagateChildRouteExit (route, next) {
         this.props.childRouteLoaded(null);
+
+        next();
     }
 
     propagateChildRoute (route, next) {

@@ -126,88 +126,6 @@ class ProjectsController extends React.Component {
         win.focus();
     }
 
-    prepareChildRoutes (page, handler) {
-        super.prepareChildRoutes(page, handler);
-
-        this.parentHandler = handler;
-
-        for (let i = 0; i < PROJECTS.length; i++) {
-            let project = PROJECTS[ i ];
-
-            if (project.route) {
-
-            }
-        }
-
-        page(/*project.route*/ '/projects/:project', this.handleProjectRoute.bind(this));
-
-        page.exit('/projects/:project', this.handleProjectExit.bind(this));
-    }
-
-    handleProjectExit (route, next) {
-        $('.project-holder').html('');
-
-        TweenMax.to($('.projects-list'), 1.0, { opacity: 1, visibility: 'visible' });
-
-        next();
-    }
-
-    handleProjectRoute (route, next) {
-        let project = null;
-
-        if ($('.projects-container').css('display') === 'none') {
-
-            //this.page(route.path, this.parentHandler);
-
-            //this.page('/projects', route.path);
-            //$('.projects-container').css('display', 'block');
-            //this.page('/projects');
-            //
-            //setTimeout(()=> {
-            //  this.page(route.path);
-            //}, 1000);
-
-        }
-
-
-        for (let i = 0; i < PROJECTS.length; i++) {
-            if (PROJECTS[ i ].route === route.path) {
-                project = PROJECTS[ i ];
-
-                break;
-            }
-        }
-        //console.log(`==== ROUTER ====\nSwitching SUB ROUTE ${project.route}\n================`);
-
-        this.inflateProject(project);
-
-        next();
-    }
-
-    inflateProject (project) {
-        let projectItem = $('<div/>').html(require('./project.pug'));
-
-        projectItem = projectItem.children('.project');
-
-        var productImage = projectItem.children('.project-item-main-image');
-
-        productImage.on('click', ()=> {
-            var win = window.open(project.href, '_blank');
-            win.focus();
-        });
-        productImage.attr('src', project.mainImage);
-
-        projectItem.children('.project-item-title').text(project.title);
-
-        projectItem.children('.project-item-description').html(project.description);
-
-        $('.project-holder').append(projectItem);
-
-        TweenMax.from(projectItem, 0, { opacity: 0 });
-        TweenMax.to($('.projects-list'), 1.0, { opacity: 0, visibility: 'hidden' });
-        TweenMax.to(projectItem, 1, { visibility: 'visible', opacity: 1 });
-    }
-
     hookProjectHolderInteractions () {
         this.projectsContiner = $('.projects-container');
 
@@ -248,31 +166,6 @@ class ProjectsController extends React.Component {
         rotY = rotY.toFixed(3);
 
         TweenMax.to(target, 0.2, { rotationX: rotX, rotationY: rotY });
-    }
-
-    inflateProjectHolder (project) {
-
-        let projectItem = $('<div/>').html(require('./projectItem.pug'));
-
-        projectItem = projectItem.children('.project-item-holder');
-
-        projectItem.children('.project-item-main-image').attr('src', project.mainImage);
-
-        projectItem.children('.project-item-title').text(project.title);
-
-        if (project.route) {
-            projectItem.on('click', ()=> {
-                this.page(project.route);
-            });
-        }
-
-        //let link = projectItem.children('.project-item-link');
-        //link.attr('href', project.href);
-
-        //projectItem.children('.project-item-catchphrase').text(project.catchPhrase);
-        //projectItem.children('.project-item-description').text(project.description);
-
-        this.projectsContiner.append(projectItem);
     }
 }
 
