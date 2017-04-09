@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import constants from '../../../constants/AppConstants';
+import { constants } from '../../constants/AppConstants';
 
 export default class BaseDemonstration extends EventEmitter {
   constructor(scene, camera) {

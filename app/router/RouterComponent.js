@@ -1,7 +1,6 @@
 import React from 'react';
 
 import page from 'page';
-import { connect } from 'react-redux';
 
 import HomeController from '../resources/components/home/HomeController';
 import ProjectsController from '../resources/components/projects/ProjectsController';

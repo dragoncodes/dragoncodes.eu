@@ -2,7 +2,7 @@ import { TimelineLite, TweenLite } from 'gsap';
 
 import LoadingPane from './components/loadingPane/';
 
-import Router from '../Router/RouterContainer';
+import Router from '../router/RouterContainer';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

@@ -1,6 +1,6 @@
 import BaseDemonstration from './Base.js';
-import { Router } from '../../../Router/RouterComponent';
-import constants from '../../../constants/AppConstants';
+import { Router } from '../../router/RouterComponent';
+import { constants } from '../../constants/AppConstants';
 import {TweenLite, TimelineLite} from 'gsap';
 import * as THREE from 'three';
 

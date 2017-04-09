@@ -1,8 +1,12 @@
 import './resources/main.css';
 
+import 'whatwg-fetch';
 import './resources/util/util.js';
 
-import { routerInteraction } from './reducers/routerInteraction';
+import { fetchProjects } from './actions/httpActions/projects';
+import { projectsLoaded } from './actions/';
+
+import reducer from './reducers';
 
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -12,7 +16,11 @@ import React from 'react';
 
 import AppComponent from './resources/components/app/';
 
-const store = createStore(routerInteraction);
+const store = createStore(reducer);
+
+fetchProjects().then((projects)=> {
+    store.dispatch(projectsLoaded(projects));
+});
 
 ReactDOM.render(
     <Provider store={store}>

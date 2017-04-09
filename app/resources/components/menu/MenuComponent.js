@@ -62,7 +62,7 @@ export default class MenuComponent extends React.Component {
 
     render () {
 
-        const { open, onNavigationClick } = this.state;
+        const { open } = this.state;
 
         return (
             <div className="menu-overlay" style={{ display: open ? 'block' : 'none' }}>

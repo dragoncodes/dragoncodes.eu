@@ -1,4 +1,19 @@
-import { RouteActionTypes } from '../reducers/routerInteraction';
+export const RouteActionTypes = {
+    ShowHideDemo: 'SHOW_HIDE_DEMO',
+    EnqueueRouterTransition: 'ENQUEUE_TRANSITION',
+    TransitionEnd: 'TRANSITION_OVER',
+    RequestChildRoute: 'REQUEST_CHILD_ROUTE'
+};
+
+export const ActionTypes = {
+    ProjectsLoaded: 'PROJECTS_LOADED'
+};
+
+export const transitionEnd = () => {
+    return {
+        type: RouteActionTypes.TransitionEnd
+    }
+};
 
 export const showHideDemonstration = (showHide) => {
     return {
@@ -18,5 +33,13 @@ export const requestChildRoute = (route) => {
     return {
         type: RouteActionTypes.RequestChildRoute,
         route: route
+    }
+};
+
+export const projectsLoaded = (projects) => {
+
+    return {
+        type: ActionTypes.ProjectsLoaded,
+        projects
     }
 };

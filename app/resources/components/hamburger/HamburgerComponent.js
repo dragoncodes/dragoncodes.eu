@@ -13,8 +13,6 @@ export default class HamburgerComponent extends React.Component {
     }
 
     componentDidMount () {
-        // TODO Hook animation events
-
         this.hookAnimationEvents();
     }
 
@@ -22,19 +20,10 @@ export default class HamburgerComponent extends React.Component {
 
         this.menuButton = $('.hamburger-holder');
         this.menuButton.on('mouseover', () => {
-            var lines = this.menuButton.children('.hamburger-line');
-            //
-            //TweenLite.to(lines[0], 0.5, {rotation: 45});
-            //TweenLite.to(lines[1], 0.5, {rotation: -45});
-            //TweenLite.to(lines[2], 0.5, {opacity: 0});
+
         });
 
         this.menuButton.on('mouseleave', () => {
-            var lines = this.menuButton.children('.hamburger-line');
-
-            //TweenLite.to(lines[0], 0.5, {rotation: 0});
-            //TweenLite.to(lines[1], 0.5, {rotation: 0});
-            //TweenLite.to(lines[2], 0.5, {opacity: 1});
         });
 
         this.menuButton.on('click', this.onMenuButtonClick.bind(this));
@@ -75,12 +64,3 @@ export default class HamburgerComponent extends React.Component {
         );
     }
 }
-
-
-//- .hamburger-holder
-//-     .hamburger-line
-//-         | &thinsp;
-//-     .hamburger-line
-//-         | &thinsp;
-//-     .hamburger-line
-//-         | &thinsp;

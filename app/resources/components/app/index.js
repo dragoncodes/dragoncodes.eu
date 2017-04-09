@@ -1,10 +1,12 @@
 import { config } from '../../../../package.json';
-import constants from '../../../constants/AppConstants';
+import { constants } from '../../../constants/AppConstants';
+
+import { RouteActionTypes, transitionEnd } from '../../../actions/';
 
 import { connect } from 'react-redux'
 import React from 'react';
 
-import SwWebGLRenderer from '../../../Renderer/DragonWebGLRenderer';
+import SwWebGLRenderer from '../../../renderer/DragonWebGLRenderer';
 import { Scene, PerspectiveCamera, DirectionalLight } from 'three';
 
 import Menu from '../menu/';
@@ -12,7 +14,7 @@ import Hamburger from '../hamburger/HamburgerComponent';
 
 import Detector from '../../../extern/Detector.js';
 
-import HomeInteractiveController from '../../../displayobjects/App/HomeInteractiveController';
+import HomeInteractiveController from '../../../displayobjects/HomeInteractiveController';
 
 import MainController from '../../MainController';
 
@@ -80,7 +82,7 @@ class AppComponent extends React.Component {
                 homeInteractionController.showHide(false);
 
                 // TODO ROUTER COMMENTED
-                // let router = Router.getInstance();
+                // let router = router.getInstance();
                 // router.init(homeInteractionController);
             });
 
@@ -205,19 +207,18 @@ class AppComponent extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
     return {
-        demonstrationShown: state.demonstrationShown,
-        transitionInProgress: state.transitionInProgress,
-        transitionToRoute: state.transitionToRoute
+        demonstrationShown: state.routerInteraction.demonstrationShown,
+        transitionInProgress: state.routerInteraction.transitionInProgress,
+        transitionToRoute: state.routerInteraction.transitionToRoute
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         transitionOver: () => {
-            dispatch({
-                type: 'TRANSITION_OVER'
-            })
+            dispatch(transitionEnd());
         }
     }
 };

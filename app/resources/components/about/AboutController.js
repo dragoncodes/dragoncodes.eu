@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import constants from '../../../constants/AppConstants.js';
+import { constants } from '../../../constants/AppConstants.js';
 import AnimationStore from '../../../stores/AnimationStore.js'
 import React from 'react';
 

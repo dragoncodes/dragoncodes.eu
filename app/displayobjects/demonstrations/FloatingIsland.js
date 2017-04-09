@@ -1,7 +1,7 @@
 import BaseDemonstration from './Base.js';
-import constants from '../../../constants/AppConstants';
+import { constants } from '../../constants/AppConstants';
 import {TweenLite, TimelineLite} from 'gsap';
-import OBJLoader from '../../../Loaders/OBJLoader.js'
+import OBJLoader from '../../loaders/OBJLoader.js'
 import * as THREE from 'three';
 
 export default class FloatingIslandDemonstration extends BaseDemonstration {

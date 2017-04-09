@@ -1,36 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Router } from '../../../Router/RouterComponent';
+import { Router } from '../../../router/RouterComponent';
 import { TweenLite, TweenMax } from 'gsap';
-
-const PROJECTS = [
-
-    {
-        id: 1,
-        title: 'St. Valentines Promotional Page',
-        catchPhrase: "Love is in the air?",
-        mainImage: '/assets/images/molly-promo.png',
-        route: '/projects/valentines',
-        href: 'http://dragoncodes.eu/valentines',
-        description: `A simple 3D heart model, made from triangles with a custom Vertex Shader. The closer it got to Valentines day, the closer the triangles were
-              to each other.`
-    },
-
-    {
-        id: 2,
-        title: 'Elemental - Android Game',
-        catchPhrase: "Listen to the sounds of the elements!",
-        mainImage: 'https://lh3.googleusercontent.com/jxoXys2wFNe00hbS5TDt4Igzzh47IxaMkgyyNBZUzMlH0fgiw2nZK90CvuZheAhJqcI=w300-rw',
-        route: '/projects/elemental-game',
-        href: 'https://play.google.com/store/apps/details?id=eu.dragoncodes.elementalfree',
-        description: `Created with love using Unity3D and C#. Unique object interactions puzzle game <div>&thinsp;</div><a class='clear-anchor' target='_blank' href='http://dragoncodes.eu/blog/elemental'>Read mode here<a/>`
-    }
-];
 
 class ProjectsController extends React.Component {
 
     static propTypes:{
-        childRoute: React.PropTypes.string
+        childRoute: React.PropTypes.string,
+        projects: React.PropTypes.array
         }
 
     constructor () {
@@ -92,9 +69,12 @@ class ProjectsController extends React.Component {
     }
 
     getProjectForRoute (subRoute) {
-        for (let i = 0; i < PROJECTS.length; i++) {
-            if (PROJECTS[ i ].route === subRoute.pathname) {
-                return PROJECTS[ i ];
+
+        const { projects } = this.props;
+
+        for (let i = 0; i < projects.length; i++) {
+            if (projects[ i ].route === subRoute.pathname) {
+                return projects[ i ];
             }
         }
 
@@ -108,7 +88,13 @@ class ProjectsController extends React.Component {
 
     renderProjectsList () {
 
-        const items = PROJECTS.map((project) =>
+        const { projects } = this.props;
+
+        if(!projects){
+            return (<div>Loading projects...</div>);
+        }
+
+        const items = projects.map((project) =>
                 <div onClick={ ()=> this.onProjectItemClick(project) } key={project.id}
                      className="project-item-holder col-md-12">
                     <div className="project-item-title">
@@ -171,7 +157,8 @@ class ProjectsController extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        childRoute: state.childRoute
+        childRoute: state.routerInteraction.childRoute,
+        projects: state.remoteDataInteraction.projects
     };
 };
 

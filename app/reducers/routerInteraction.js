@@ -1,9 +1,4 @@
-export const RouteActionTypes = {
-    ShowHideDemo: 'SHOW_HIDE_DEMO',
-    EnqueueRouterTransition: 'ENQUEUE_TRANSITION',
-    TransitionEnd: 'TRANSITION_OVER',
-    RequestChildRoute: 'REQUEST_CHILD_ROUTE'
-};
+import { RouteActionTypes } from '../actions/';
 
 export const routerInteraction = (state = {}, action = {}) => {
     switch (action.type) {

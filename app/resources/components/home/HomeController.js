@@ -61,14 +61,6 @@ class HomeController extends React.Component {
         //
         this.currentIndex++;
     }
-
-    //onCreate(){
-    //  $('.dragon-footer').css('display', 'block');
-    //}
-    //
-    //onDestroy(){
-    //  $('.dragon-footer').css('display', 'none');
-    //}
 }
 
 

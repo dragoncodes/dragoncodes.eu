@@ -4,7 +4,7 @@ import {showHideDemonstration, enqueueTransition, requestChildRoute} from '../ac
 
 const mapStateToProps = (state) => {
     return {
-        transitionInProgress: state.transitionInProgress
+        transitionInProgress: state.routerInteraction.transitionInProgress
     }
 };
 

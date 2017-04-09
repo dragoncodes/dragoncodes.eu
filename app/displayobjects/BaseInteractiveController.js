@@ -1,6 +1,6 @@
-import AnimationStore from '../../stores/AnimationStore.js';
+import AnimationStore from '../stores/AnimationStore.js';
 import BaseDemonstration from './demonstrations/Base.js';
-import constants from '../../constants/AppConstants';
+import { constants } from '../constants/AppConstants';
 
 export default class BaseInteractiveController {
   constructor(scene, camera) {
