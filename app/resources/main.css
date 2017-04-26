@@ -119,6 +119,7 @@ html, body {
     font-family: 'Caveat Brush', cursive;
     font-weight: 500;
     font-size: 2em;
+    margin-bottom: 1em;
 }
 
 @media (max-width: 500px) {
@@ -142,6 +143,7 @@ html, body {
 .project-item-main-image {
     margin-bottom: 2em;
     width: 35em;
+    cursor: pointer;
 }
 
 .projects-list {
@@ -150,10 +152,6 @@ html, body {
 
 .clear-anchor {
     color: #3c3e8a !important;
-}
-
-.project {
-    cursor: pointer;
 }
 
 .loading-overlay {

@@ -55,7 +55,7 @@ class AboutController extends React.Component {
 
         this.stage = new PIXI.Container();
 
-        let me = PIXI.Sprite.fromImage('/assets/images/me.jpg');
+        let me = PIXI.Sprite.fromImage('https://s3.eu-central-1.amazonaws.com/dragoncodes/images/me.jpg');
         me.width = width;
         me.height = height;
 
