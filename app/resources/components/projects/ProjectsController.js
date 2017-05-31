@@ -56,7 +56,7 @@ class ProjectsController extends React.Component {
                          src={project.mainImage}/>
 
                     <div className="project-item-catchphrase">
-                        <a href={project.href} className="project-item-link">
+                        <a href={project.href} target="_blank" className="project-item-link">
                             { project.catchPhrase }
                         </a>
                     </div>
